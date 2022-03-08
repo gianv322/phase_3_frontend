@@ -7,6 +7,7 @@ function Cards({name, price, category}) {
     <p>Name: {name}</p>
     <p>$ {price}</p>
     <p>Type: {category}</p>
+    <button>Add to Build</button>
   </div>
   )
 }

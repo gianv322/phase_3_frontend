@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Header />
       <Buttons />
-      <Filter setSelection={setSelection}/>
+      <Filter setSelection={setSelection} partsArray = {partsArray}/>
       <CardDisplay filterPartsArray = {filterPartsArray} />
     </div>
   );

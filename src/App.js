@@ -1,19 +1,32 @@
+import "./App.css";
 import React, {useState, useEffect} from 'react';
-import Carddisplay from './components/Carddisplay'
+import CardDisplay from './components/CardDisplay'
+import Header from './components/Header'
+import Buttons from './components/Buttons'
+import Forms from './components/Forms'
+
 function App() {
   
   const [partsArray, setPartsArray] = useState([])
+
   useEffect(() => {
     fetch ('http://localhost:9292/parts')
     .then (res => res.json())
-    .then (setPartsArray => console.log(setPartsArray));
+    .then (setPartsArray);
   }, [])
+
+  function handleChange (){
+    // Change State of Parts Displayed
+    
+  }
+
   
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
-      <Carddisplay partsArray={partsArray}/>
+      <Header />
+      <Buttons />
+      <Forms partsArray={partsArray} handleChange={handleChange} />
+      <CardDisplay partsArray={partsArray} />
     </div>
   );
 }

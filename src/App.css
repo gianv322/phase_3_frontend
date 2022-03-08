@@ -1,0 +1,17 @@
+.itemCard {
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.header {
+    margin: 75px;
+}
+
+.card-container {
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}

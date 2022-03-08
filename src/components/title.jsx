@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function title() {
+export default function Title() {
   return (
     <div>title</div>
   )

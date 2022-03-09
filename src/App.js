@@ -39,10 +39,7 @@ function App() {
     setBuildsArray(buildsArray => {
       return [...buildsArray, newBuild];
     });
-    
-    
   }
-
   
   return (
     <div className="App">

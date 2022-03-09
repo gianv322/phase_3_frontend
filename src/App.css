@@ -4,7 +4,8 @@
 }
 
 .header {
-    margin: 75px;
+    padding: 75px;
+    border: 2px solid black;
 }
 
 .card-container {
@@ -14,11 +15,28 @@
 .button-container {
     display: flex;
     justify-content: center;
+    border: 2px solid black;
 }
 
 .filter {
  margin: 10px;
 }
+
+form {
+    padding: 20px;
+    /* display: flex;
+    justify-content: center; */
+
+}
+
+label {
+    padding: 200px;
+}
+
+select {
+    margin: 10px;
+}
+
 .builds {
     border: 2px solid black;
     border-radius: 10px;

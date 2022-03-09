@@ -2,17 +2,15 @@ import React, {useState} from 'react'
 
 function CreateBuild({setPartsArray, addNewBuild}) {
     const parts = setPartsArray.map 
-    const [buildName, setBuildName] = useState("")
+    const [name, setName] = useState("")
     const [cpu, setCpu] = useState('')
     const [gpu, setGpu] = useState('')
-    const [motherBoard, setMotherBoard] = useState('')
-    const [newCase, setNewCase] = useState('')
+    const [motherboard, setMotherboard] = useState('')
+    const [case, setCase] = useState('')
     const [memory, setMemory] = useState('')
     const [powerSupply, setPowerSupply] = useState('')
     const [storage, setStorage] = useState('')
     const [cpuCooler, setCpuCooler] = useState('')
-console.log(buildName);
-    
     
     function handleChangeBuildName(e){
         const currentInput = e.target.value
@@ -51,17 +49,38 @@ console.log(buildName);
         setCpuCooler(currentInput)
     }
 
+    function addNewBuildToDatabase(newBuild) {
+        fetch('http://localhost:9292/builds', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                    },
+            body: JSON.stringify(newBuild),
+        })
+    }
+
+
     function handleSubmit(e){
         e.preventDefault()
-        const newBuild = {cpu, gpu, motherBoard, newCase, memory, powerSupply, storage, cpuCooler}
-
+        const newBuild = {
+            name, 
+            total_price,
+            case,
+            cpu,
+            gpu,
+            memory,
+            storage,
+            power_supply,
+            motherboard,
+            cpu_cooler
+        }
+        addNewBuildToDatabase(newBuild)
         addNewBuild(newBuild)
-        console.log(newBuild)
     }
     
   return (
     <div className = "createbuild">
-        <form onSubmit = {handleSubmit}>
+        <form className="form" onSubmit = {handleSubmit}>
             <label for = "title">Build Name:</label>
             <input type = "text" placeholder = "Build Name" value = {buildName} onChange = {handleChangeBuildName} />
             <br></br>

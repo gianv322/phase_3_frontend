@@ -1,12 +1,13 @@
 import "./App.css";
-import React, {useState, useEffect} from 'react';
-// import { Routes, Route, Link, Switch } from "react-router-dom";
+import React, {useState, useEffect, Fragment} from 'react';
+import { Routes, Route, Link, Switch } from "react-router-dom";
 
 import CardDisplay from './components/CardDisplay'
 import Header from './components/Header'
 import Buttons from './components/Buttons'
 import Filter from './components/Filter'
 import Builds from './components/Builds'
+import CreateBuild from './components/CreateBuild'
 
 function App() {
   
@@ -34,19 +35,30 @@ function App() {
     }
   });
 
-  function handleChange () {
-    // Change State of Parts Displayed
+  function addNewBuild (newBuild) {
+    setBuildsArray(buildsArray => {
+      return [...buildsArray, newBuild];
+    });
+    
     
   }
 
   
   return (
     <div className="App">
-      <Header />
-      <Buttons />
-          <Filter setSelection={setSelection} partsArray={partsArray}/>
-          <CardDisplay filterPartsArray={filterPartsArray} />
-          <Builds buildsArray={buildsArray} />
+        
+        <Header />
+          <Buttons />
+          <Switch>
+           <Route exact path = "/" >
+            {/* <Filter setSelection={setSelection} partsArray={partsArray}/> */}
+            {/* <CardDisplay filterPartsArray={filterPartsArray} /> */}
+            <CreateBuild setPartsArray={setPartsArray} addNewBuild={addNewBuild}/>
+          </Route>
+          <Route exact path = "/builds">
+            <Builds buildsArray={buildsArray} />
+          </Route>
+        </Switch>
     </div>
   );
 }

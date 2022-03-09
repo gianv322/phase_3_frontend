@@ -2,6 +2,9 @@ import React from "react";
 import CategoryCard from "./CategoryCard";
 import { v4 as uuidv4 } from "uuid";
 
+
+
+
 function Filter({setSelection, partsArray}) {
     const partsCategory = partsArray.map (partObj => <CategoryCard key={uuidv4()} partsArray={partsArray} {...partObj}/>);
     // const partsCategory = partsArray.map (partObj => partObj.category);

@@ -1,8 +1,12 @@
 import React from 'react'
 
-function BuildCard({name}) {
+function BuildCard({name, price}) {
   return (
-    <div>Name: {name}</div>
+    <div>
+      Name: {name}
+      Price: {price}
+    </div>
+    
   )
 }
 

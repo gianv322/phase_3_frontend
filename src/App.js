@@ -24,7 +24,7 @@ function App() {
     }
   });
 
-  function handleChange (){
+  function handleChange () {
     // Change State of Parts Displayed
     
   }
@@ -34,8 +34,8 @@ function App() {
     <div className="App">
       <Header />
       <Buttons />
-      <Filter setSelection={setSelection} partsArray = {partsArray}/>
-      <CardDisplay filterPartsArray = {filterPartsArray} />
+      <Filter setSelection={setSelection} partsArray={partsArray}/>
+      <CardDisplay filterPartsArray={filterPartsArray} />
     </div>
   );
 }

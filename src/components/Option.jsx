@@ -2,7 +2,7 @@ import React from 'react'
 
 function Option({name}) {
   return (
-    <option value = "name" > {name} </option>
+    <option value = "name" >{name}</option>
   )
 }
 

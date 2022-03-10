@@ -6,7 +6,7 @@ function CreateBuild({setPartsArray, addNewBuild}) {
     const [cpu, setCpu] = useState('')
     const [gpu, setGpu] = useState('')
     const [motherboard, setMotherboard] = useState('')
-    const [case, setCase] = useState('')
+    const [newCase, setNewCase] = useState('')
     const [memory, setMemory] = useState('')
     const [powerSupply, setPowerSupply] = useState('')
     const [storage, setStorage] = useState('')
@@ -14,7 +14,7 @@ function CreateBuild({setPartsArray, addNewBuild}) {
     
     function handleChangeBuildName(e){
         const currentInput = e.target.value
-        setBuildName(currentInput)
+        setName(currentInput)
     }
     function handleChangeCPU(e){
         const currentInput = e.target.value
@@ -26,7 +26,7 @@ function CreateBuild({setPartsArray, addNewBuild}) {
     }
     function handleChangeMotherBoard(e){
         const currentInput = e.target.value
-        setMotherBoard(currentInput)
+        setMotherboard(currentInput)
     }
     function handleChangeNewCase(e){
         const currentInput = e.target.value
@@ -64,15 +64,14 @@ function CreateBuild({setPartsArray, addNewBuild}) {
         e.preventDefault()
         const newBuild = {
             name, 
-            total_price,
-            case,
+            newCase,
             cpu,
             gpu,
             memory,
             storage,
-            power_supply,
+            powerSupply,
             motherboard,
-            cpu_cooler
+            cpuCooler
         }
         addNewBuildToDatabase(newBuild)
         addNewBuild(newBuild)
@@ -82,7 +81,7 @@ function CreateBuild({setPartsArray, addNewBuild}) {
     <div className = "createbuild">
         <form className="form" onSubmit = {handleSubmit}>
             <label for = "title">Build Name:</label>
-            <input type = "text" placeholder = "Build Name" value = {buildName} onChange = {handleChangeBuildName} />
+            <input type = "text" placeholder = "Build Name" value = {name} onChange = {handleChangeBuildName} />
             <br></br>
             <label for = "CPU">Choose a CPU</label>
             <select value = {cpu} onChange = {handleChangeCPU}>
@@ -94,7 +93,7 @@ function CreateBuild({setPartsArray, addNewBuild}) {
             </select>
             <br></br>
             <label for = "motherboard">Choose a Motherboard</label>
-            <select value = {motherBoard} onChange = {handleChangeMotherBoard}>
+            <select value = {motherboard} onChange = {handleChangeMotherBoard}>
             <option>new motherboard</option>
             </select>
             <br></br>

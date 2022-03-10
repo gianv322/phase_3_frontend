@@ -52,6 +52,8 @@ function App() {
             {/* <CardDisplay filterPartsArray={filterPartsArray} /> */}
             <CreateBuild setPartsArray={setPartsArray} addNewBuild={addNewBuild}/>
           </Route>
+          </Switch>
+          <Switch>
           <Route exact path = "/builds">
             <Builds buildsArray={buildsArray} />
           </Route>

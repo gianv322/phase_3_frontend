@@ -2,7 +2,7 @@ import React from 'react'
 
 function BuildCard({name, total_price, chassis, motherboard, gpu, cpu}) {
   return (
-    <div>
+    <div className="build-container">
       <h2>Name: {name}</h2>
         <ul>
           <li>Price: ${total_price}</li>

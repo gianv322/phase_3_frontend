@@ -7,7 +7,7 @@ function Builds({buildsArray}) {
     const buildSpecs = buildsArray.map(buildObj => <BuildCard key={uuidv4()} {...buildObj}/>)
 
   return (
-    <div>{buildSpecs}</div>
+    <div className="builds-container">{buildSpecs}</div>
   )
 }
 

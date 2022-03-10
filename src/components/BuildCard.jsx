@@ -1,10 +1,15 @@
 import React from 'react'
 
-function BuildCard({name, price}) {
+function BuildCard({name, total_price, motherboard, gpu, cpu}) {
   return (
     <div>
-      Name: {name}
-      Price: {price}
+      <h2>Name: {name}</h2>
+        <ul>
+          <li>Price: ${total_price}</li>
+          <li>MOBO: {motherboard}</li>
+          <li>CPU: {cpu}</li>
+          <li>GPU: {gpu}</li>
+        </ul>
     </div>
     
   )

@@ -155,7 +155,7 @@ select {
 	.submit::after{
 		content: "";
 		display: inline-block;
-		background-image: url(b64);
+		background-image: url();
 		position: absolute;
 		top: 0;
 		left: calc(100% - 3em);

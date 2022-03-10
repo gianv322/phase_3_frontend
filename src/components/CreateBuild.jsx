@@ -72,9 +72,9 @@ function CreateBuild({partsArray, addNewBuild}) {
     }
 
     // Handle Map Array to Return Array of Part Names
-    const partNames = partsArray.map(partObj => partObj.name)
+    // const partNames = partsArray.map(partObj => partObj.name)
     // Filter Part Names if Includes
-    console.log(partNames) 
+     
     
   return (
     <div className = "createbuild">
@@ -84,22 +84,30 @@ function CreateBuild({partsArray, addNewBuild}) {
         <br></br>
             <label for = "CPU">Choose a CPU</label>
             <select value = {cpu} onChange = {handleChangeCPU}>
-                <option></option>
+                <option value = "1">New CPU</option>
+                <option value = "2">Fast CPU</option>
+                <option value = "3">Big CPU</option>
             </select>
         <br></br>
             <label for = "GPU">Choose a GPU</label>
             <select value = {gpu} onChange = {handleChangeGPU}>
-                <option>new Gpu</option>
+                <option>New Gpu</option>
+                <option>Fast Gpu</option>
+                <option>Big Gpu</option>
             </select>
         <br></br>
             <label for = "motherboard">Choose a Motherboard</label>
             <select value = {motherboard} onChange = {handleChangeMotherBoard}>
-                <option>new motherboard</option>
+                <option>New motherboard</option>
+                <option>Fast motherboard</option>
+                <option>Big motherboard</option>
             </select>
         <br></br>
             <label for = "case">Choose a Case</label>
             <select value = {chassis} onChange = {handleChangeNewCase}>
-                <option>new case</option>
+                <option>New Case</option>
+                <option>Big Case</option>
+                <option>Small Case</option>
             </select>
             {/* <br></br>
             <label for = "memory">Choose a Memory</label>
@@ -122,7 +130,7 @@ function CreateBuild({partsArray, addNewBuild}) {
             <option>cpu cooler</option>
             </select>
             <br></br> */}
-            <input id="new-build-button" type="submit" value="Create Build"/>
+            <input className = "submit" id="new-build-button" type="submit" value="Create Build"/>
         </form>
 
     </div>

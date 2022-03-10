@@ -78,33 +78,34 @@ function CreateBuild({partsArray, addNewBuild}) {
     
   return (
     <div className = "createbuild">
-        <form className="form" onSubmit = {handleSubmit}>
+        <form className="form" onSubmit = {handleSubmit} required>
             <label for = "title">Build Name:</label>
             <input type = "text" placeholder = "Build Name" value = {name} onChange = {handleChangeBuildName} />
         <br></br>
+            
             <label for = "CPU">Choose a CPU</label>
-            <select value = {cpu} onChange = {handleChangeCPU}>
-                <option value = "1">New CPU</option>
-                <option value = "2">Fast CPU</option>
-                <option value = "3">Big CPU</option>
+            <select className = "option" value = {cpu} onChange = {handleChangeCPU} >
+                <option>New CPU</option>
+                <option>Fast CPU</option>
+                <option>Big CPU</option>
             </select>
         <br></br>
             <label for = "GPU">Choose a GPU</label>
-            <select value = {gpu} onChange = {handleChangeGPU}>
+            <select className = "option" value = {gpu} onChange = {handleChangeGPU} required>
                 <option>New Gpu</option>
                 <option>Fast Gpu</option>
                 <option>Big Gpu</option>
             </select>
         <br></br>
-            <label for = "motherboard">Choose a Motherboard</label>
-            <select value = {motherboard} onChange = {handleChangeMotherBoard}>
+            <label for = "motherboard">Choose a Mobo</label>
+            <select className = "option" value = {motherboard} onChange = {handleChangeMotherBoard} required>
                 <option>New motherboard</option>
                 <option>Fast motherboard</option>
                 <option>Big motherboard</option>
             </select>
         <br></br>
             <label for = "case">Choose a Case</label>
-            <select value = {chassis} onChange = {handleChangeNewCase}>
+            <select className = "option" value = {chassis} onChange = {handleChangeNewCase} required>
                 <option>New Case</option>
                 <option>Big Case</option>
                 <option>Small Case</option>
@@ -130,6 +131,7 @@ function CreateBuild({partsArray, addNewBuild}) {
             <option>cpu cooler</option>
             </select>
             <br></br> */}
+            <br></br>
             <input className = "submit" id="new-build-button" type="submit" value="Create Build"/>
         </form>
 

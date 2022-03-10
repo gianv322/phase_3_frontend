@@ -78,7 +78,7 @@ function CreateBuild({partsArray, addNewBuild}) {
     
   return (
     <div className = "createbuild">
-        <form className="form" onSubmit = {handleSubmit} required>
+        <form className="form" onSubmit = {handleSubmit} required />
             <label for = "title">Build Name:</label>
             <input type = "text" placeholder = "Build Name" value = {name} onChange = {handleChangeBuildName} />
         <br></br>
@@ -110,6 +110,47 @@ function CreateBuild({partsArray, addNewBuild}) {
                 <option>Big Case</option>
                 <option>Small Case</option>
             </select>
+        <form className="form" onSubmit = {handleSubmit}>
+            <div>
+                <label for = "title">Build Name:</label>
+                <input type = "text" placeholder = "Build Name" value = {name} onChange = {handleChangeBuildName} />
+            </div>
+        <br></br>
+            <div>
+                <label for = "CPU">Choose a CPU</label>
+                <select value = {cpu} onChange = {handleChangeCPU}>
+                    <option value = "1">New CPU</option>
+                    <option value = "2">Fast CPU</option>
+                    <option value = "3">Big CPU</option>
+                </select>
+            </div>
+        <br></br>
+            <div>
+                <label for = "GPU">Choose a GPU</label>
+                <select value = {gpu} onChange = {handleChangeGPU}>
+                    <option>New Gpu</option>
+                    <option>Fast Gpu</option>
+                    <option>Big Gpu</option>
+                </select>
+            </div>
+        <br></br>
+            <div>
+                <label for = "motherboard">Choose a Motherboard</label>
+                <select value = {motherboard} onChange = {handleChangeMotherBoard}>
+                    <option>New motherboard</option>
+                    <option>Fast motherboard</option>
+                    <option>Big motherboard</option>
+                </select>
+            </div>
+        <br></br>
+            <div>
+                <label for = "case">Choose a Case</label>
+                <select value = {chassis} onChange = {handleChangeNewCase}>
+                    <option>New Case</option>
+                    <option>Big Case</option>
+                    <option>Small Case</option>
+                </select>
+            </div>
             {/* <br></br>
             <label for = "memory">Choose a Memory</label>
             <select value = {memory} onChange = {handleChangeMemory}>

@@ -1,16 +1,33 @@
 import React, {useState} from 'react'
 
-function CreateBuild({partsArray, addNewBuild}) {
+function CreateBuild({partsArray, addNewBuild}) {   
     const [name, setName] = useState("")
     const [cpu, setCpu] = useState('')
     const [gpu, setGpu] = useState('')
     const [motherboard, setMotherboard] = useState('')
     const [chassis, setChassis] = useState('')
-    // const [memory, setMemory] = useState('')
-    // const [powerSupply, setPowerSupply] = useState('')
-    // const [storage, setStorage] = useState('')
-    // const [cpuCooler, setCpuCooler] = useState('')
-    
+    const [memory, setMemory] = useState('')
+    const [powerSupply, setPowerSupply] = useState('')
+    const [storage, setStorage] = useState('')
+
+   
+
+
+
+    const provideFilteredOptions = (componentType) => {
+
+        const filteredArray = partsArray.filter(part => {
+            return part.component_type === componentType;
+        })
+
+        return filteredArray.map(part => {
+            return (
+                <option>{part.name}</option>
+            )
+        })
+
+    }
+
     function handleChangeBuildName(e){
         const currentInput = e.target.value
         setName(currentInput)
@@ -31,22 +48,19 @@ function CreateBuild({partsArray, addNewBuild}) {
         const currentInput = e.target.value
         setChassis(currentInput)
     }
-    // function handleChangeMemory(e){
-    //     const currentInput = e.target.value
-    //     setMemory(currentInput)
-    // }
-    // function handleChangePowerSupply(e){ 
-    //     const currentInput = e.target.value
-    //     setPowerSupply(currentInput)
-    // }
-    // function handleChangeStorage(e){
-    //     const currentInput = e.target.value
-    //     setStorage(currentInput)
-    // }
-    // function handleChangeCPUCooler(e){
-    //     const currentInput = e.target.value
-    //     setCpuCooler(currentInput)
-    // }
+    function handleChangeMemory(e){
+        const currentInput = e.target.value
+        setMemory(currentInput)
+    }
+    function handleChangePowerSupply(e){ 
+        const currentInput = e.target.value
+        setPowerSupply(currentInput)
+    }
+    function handleChangeStorage(e){
+        const currentInput = e.target.value
+        setStorage(currentInput)
+    }
+    
 
     function addNewBuildToDatabase(newBuild) {
         fetch('http://localhost:9292/builds', {
@@ -65,7 +79,11 @@ function CreateBuild({partsArray, addNewBuild}) {
             chassis,
             cpu,
             gpu,
-            motherboard
+            motherboard,
+            powerSupply,
+            storage,
+            memory
+
         }
         addNewBuildToDatabase(newBuild)
         addNewBuild(newBuild)
@@ -84,30 +102,37 @@ function CreateBuild({partsArray, addNewBuild}) {
         <br></br>
             <label for = "CPU">Choose a CPU</label>
             <select className = "option" value = {cpu} onChange = {handleChangeCPU} >
-                <option>New CPU</option>
-                <option>Fast CPU</option>
-                <option>Big CPU</option>
+                {provideFilteredOptions('CPU')}
             </select>
         <br></br>
             <label for = "GPU">Choose a GPU</label>
             <select className = "option" value = {gpu} onChange = {handleChangeGPU} required>
-                <option>New Gpu</option>
-                <option>Fast Gpu</option>
-                <option>Big Gpu</option>
+               {provideFilteredOptions('GPU')}
             </select>
         <br></br>
             <label for = "motherboard">Choose a Mobo</label>
             <select className = "option" value = {motherboard} onChange = {handleChangeMotherBoard} required>
-                <option>New motherboard</option>
-                <option>Fast motherboard</option>
-                <option>Big motherboard</option>
+                {provideFilteredOptions('motherboard')}
             </select>
         <br></br>
             <label for = "case">Choose a Case</label>
             <select className = "option" value = {chassis} onChange = {handleChangeNewCase} required>
-                <option>New Case</option>
-                <option>Big Case</option>
-                <option>Small Case</option>
+                {provideFilteredOptions('case')}
+            </select>
+            <br></br>
+            <label for = "case">Choose Storage</label>
+            <select className = "option" value = {storage} onChange = {handleChangeStorage} required>
+                {provideFilteredOptions('storage')}
+            </select>
+            <br></br>
+            <label for = "case">Choose a Power Supply</label>
+            <select className = "option" value = {powerSupply} onChange = {handleChangePowerSupply} required>
+                {provideFilteredOptions('power-supply')}
+            </select>
+            <br></br>
+            <label for = "case">Choose a Memory</label>
+            <select className = "option" value = {memory} onChange = {handleChangeMemory} required>
+                {provideFilteredOptions('memory')}
             </select>
         <form className="form" onSubmit = {handleSubmit}>
             <br></br>

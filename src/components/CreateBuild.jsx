@@ -100,46 +100,56 @@ function CreateBuild({partsArray, addNewBuild}) {
   return (
     <div className = "createbuild">
         <form className="form" onSubmit = {handleSubmit} required />
-            <label className = "label" for = "title">Build Name:</label>
-            <input type = "text" placeholder = "Build Name" value = {name} onChange = {handleChangeBuildName} />
+            <label className = "label" for = "title">Build Name</label>
+            <br></br>
+            <input className="build-name" type = "text" placeholder = "Build Name" value = {name} onChange = {handleChangeBuildName} />
+            <hr></hr>
         <br></br>
             <label className = "label" for = "CPU">Choose a CPU</label>
+            <br></br>
             <select className = "option" value = {cpu} onChange = {handleChangeCPU} >
                 {provideFilteredOptions('CPU')}
             </select>
         <br></br>
             <label className = "label" for = "GPU">Choose a GPU</label>
+            <br></br>
             <select className = "option" value = {gpu} onChange = {handleChangeGPU} required>
                {provideFilteredOptions('GPU')}
             </select>
         <br></br>
             <label className = "label" for = "motherboard">Choose a Mobo</label>
+            <br></br>
             <select className = "option" value = {motherboard} onChange = {handleChangeMotherBoard} required>
                 {provideFilteredOptions('motherboard')}
             </select>
         <br></br>
             <label className = "label" for = "case">Choose a Case</label>
+            <br></br>
             <select className = "option" value = {chassis} onChange = {handleChangeNewCase} required>
                 {provideFilteredOptions('case')}
             </select>
-            <br></br>
+        <br></br>
             <label className = "label" for = "case">Choose Storage</label>
+            <br></br>
             <select className = "option" value = {storage} onChange = {handleChangeStorage} required>
                 {provideFilteredOptions('storage')}
             </select>
-            <br></br>
+        <br></br>
             <label className = "label" for = "case">Choose a Power Supply</label>
+            <br></br>
             <select className = "option" value = {powerSupply} onChange = {handleChangePowerSupply} required>
                 {provideFilteredOptions('power-supply')}
             </select>
-            <br></br>
+        <br></br>
             <label className = "label" for = "case">Choose a Memory</label>
+            <br></br>
             <select className = "option" value = {memory} onChange = {handleChangeMemory} required>
                 {provideFilteredOptions('memory')}
             </select>
         <form className="form" onSubmit = {handleSubmit}>
+            <hr></hr>
             <br></br>
-            <input className = "submit" id="new-build-button" type="submit" value="Create Build" onClick = {showAlert}/>
+            <input className="submit" type="submit" value="Create Build" onClick = {showAlert}/>
         </form>
 
     </div>

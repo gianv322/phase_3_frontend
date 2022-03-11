@@ -14,7 +14,7 @@ function App() {
   const [selection, setSelection] = useState([])
 
   useEffect(() => {
-    fetch ('http://localhost:9292/parts')
+    fetch ('http://localhost:9292/components')
     .then (res => res.json())
     .then (setPartsArray);
   }, [])
@@ -24,6 +24,7 @@ function App() {
     .then (res => res.json())
     .then (setBuildsArray);
   }, [])
+  
 
   const filterPartsArray = partsArray.filter((partObj) => {
     if (selection === "All") {
